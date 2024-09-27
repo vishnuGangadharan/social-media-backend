@@ -1,7 +1,6 @@
-import { UserTypes } from "../../domain/user";
+import { profilePost, UserTypes } from "../../domain/user";
 import  OTP from "../../domain/otp";
 import { comments, PostTypes } from "../../domain/post";
-
 interface UserRepo {
     findUserByEmail(email: string): Promise<UserTypes | null>;
     saveOTP(otp:number,email:string,name?:string,phone?:string, password?:string):Promise<any>;
@@ -12,8 +11,7 @@ interface UserRepo {
     postData(): Promise<PostTypes[] | undefined>;
     findById(id:string):Promise<UserTypes | null>;
     createComment(comment: string, userId: string, postId: string, userName:string): Promise<comments>;
-
-
+    getUserData(userId: string) : Promise <profilePost | undefined>
 
 }
 

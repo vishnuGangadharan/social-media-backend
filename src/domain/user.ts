@@ -1,3 +1,4 @@
+import { PostTypes } from "./post";
 
 
 export interface UserTypes{
@@ -12,4 +13,9 @@ export interface UserTypes{
     isAdmin?:boolean;
     isGoogle?:boolean;
     lastSeen?:Date;
+}
+
+export interface profilePost{
+    user: UserTypes | null;
+    post:PostTypes[]
 }

@@ -141,6 +141,19 @@ class UserController {
 
     }
 
+
+    async getUserData(req: Request, res:Response, next: NextFunction){
+        try {
+            let userId = req.query.userId
+          const response = await this.userUseCase.getUserData(userId as string)
+          if(response)
+         return res.status(response?.status).json(response.data)
+        } catch (error) {
+            next(error)
+        }
+        
+    }
+
 }
 
 export default UserController

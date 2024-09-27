@@ -272,6 +272,23 @@ class UserUseCase {
         }
     }
     
+
+    async getUserData(userId : string) {
+        try {
+            const userData = await this.userRepository.getUserData(userId)
+                if(userData){
+                    return {
+                        status:200,
+                        data:{
+                            data:userData
+                        }
+                    }
+                }
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
 }
 
 export default UserUseCase;

@@ -1,4 +1,5 @@
 import { Document, Schema } from "mongoose";
+import { UserTypes } from "./user";
 
 export interface PostTypes {
     content: string;
@@ -17,3 +18,4 @@ export interface comments extends Document {
     updatedAt: Date;
     userName: string
 }
+

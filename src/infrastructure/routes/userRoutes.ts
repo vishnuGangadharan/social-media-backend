@@ -27,4 +27,5 @@ routes.post('/addPost', upload.fields([{name: 'imagesUpdate', maxCount:3}, {name
 routes.post('/login', (req,res,next) => userController.login(req,res,next))
 routes.get('/postData', (req,res,next) => userController.postData(req,res,next))
 routes.post('/postComment', (req,res,next) => userController.postComment(req,res,next))
+routes.get('/userData', (req,res,next) => userController.getUserData(req,res,next))
 export default routes;
