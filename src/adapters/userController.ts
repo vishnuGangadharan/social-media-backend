@@ -154,6 +154,30 @@ class UserController {
         
     }
 
+
+    async followUser(req: Request, res:Response, next: NextFunction){
+        try {
+            console.log(req.body);
+            
+        } catch (error) {
+            next(error)
+        }
+    }
+
+
+    async allUsers(req: Request, res: Response, next: NextFunction) {
+        try {
+            console.log(req.query.userId);
+            
+            const userId = req.query.userId as string
+            const response = await this.userUseCase.allUsers(userId)
+            if(response)
+            return res.status(response?.status).json(response?.data)
+        } catch (error) {
+            next(error)
+        }
+    }
+
 }
 
 export default UserController

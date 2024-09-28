@@ -50,7 +50,15 @@ const userSchema: Schema< UserDocument> = new Schema< UserDocument>({
     lastSeen:{
         type: Date,
         default: null,
-    }
+    },
+    followers:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+       }],
+    following:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+       }]
 },{ timestamps: true})
 
 const UserModel: Model<UserDocument> = mongoose.model<UserDocument>('User', userSchema);

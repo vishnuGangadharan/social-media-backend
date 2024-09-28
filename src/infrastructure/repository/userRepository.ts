@@ -111,6 +111,18 @@ class UserRepository implements UserRepo {
         }
     }
 
+    async allUsers(userId: string): Promise<UserTypes[] | undefined> {
+        try {
+            const allUsers = await UserModel.find({_id: {$ne : userId}})
+            console.log(allUsers);
+            
+            return allUsers
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
 }
 
 export default UserRepository;

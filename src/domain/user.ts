@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { PostTypes } from "./post";
 
 
@@ -13,6 +14,8 @@ export interface UserTypes{
     isAdmin?:boolean;
     isGoogle?:boolean;
     lastSeen?:Date;
+    followers:mongoose.Types.ObjectId[];
+    following:mongoose.Types.ObjectId[];
 }
 
 export interface profilePost{

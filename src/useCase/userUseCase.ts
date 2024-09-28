@@ -232,6 +232,7 @@ class UserUseCase {
             videoPath = cloundinary 
         }
         const post = await this.userRepository.createPost(content, userId, imagePath, videoPath)
+        console.log('llll',post);
         
         return {
             status: 200,
@@ -286,6 +287,24 @@ class UserUseCase {
                 }
         } catch (error) {
             console.log(error);
+            
+        }
+    }
+
+
+    async allUsers(userId: string){
+        try {
+            const allUsers = await this.userRepository.allUsers(userId)
+            if(allUsers){
+                return {
+                    status: 200,
+                    data: {
+                        data:allUsers
+                    }
+                }
+            }
+        } catch (error) {
+           console.log(error);
             
         }
     }

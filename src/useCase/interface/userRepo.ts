@@ -12,6 +12,7 @@ interface UserRepo {
     findById(id:string):Promise<UserTypes | null>;
     createComment(comment: string, userId: string, postId: string, userName:string): Promise<comments>;
     getUserData(userId: string) : Promise <profilePost | undefined>
+    allUsers(userId:string): Promise<UserTypes[] | undefined >
 
 }
 
