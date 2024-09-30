@@ -30,5 +30,5 @@ routes.post('/postComment', (req,res,next) => userController.postComment(req,res
 routes.get('/userData', (req,res,next) => userController.getUserData(req,res,next))
 routes.post('/follow', (req,res,next) => userController.followUser(req,res,next))
 routes.get('/allUsers', (req,res,next) => userController.allUsers(req,res,next))
-
+routes.get('/allVideos', (req,res,next) => userController.allVideos(req,res,next))
 export default routes;

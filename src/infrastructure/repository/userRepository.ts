@@ -123,6 +123,14 @@ class UserRepository implements UserRepo {
         }
     }
 
+    async allVideos(): Promise<PostTypes[] | undefined> {
+        
+        const reels = await PostModel.find({ video: { $exists: true, $ne: [] } })
+        .populate({ path: 'userId', select: '_id name profilePicture like' })
+        .lean()
+        return reels
+    }
+
 }
 
 export default UserRepository;

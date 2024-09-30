@@ -308,6 +308,24 @@ class UserUseCase {
             
         }
     }
+
+
+   async allVideos(){
+    try{
+
+        const reels = await this.userRepository.allVideos()
+        if(reels){
+            return {
+                status:200,
+                data:{
+                    data:reels
+                }
+            }
+        }
+    }catch(error){
+        console.log(error);
+    }
+   }
 }
 
 export default UserUseCase;

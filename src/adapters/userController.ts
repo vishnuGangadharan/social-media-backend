@@ -178,6 +178,18 @@ class UserController {
         }
     }
 
+
+    async allVideos(req: Request, res: Response, next: NextFunction) {
+        try {
+            const response =await this.userUseCase.allVideos()
+            console.log('data',response?.data);
+            
+            if(response)
+            return res.status(response?.status).json(response.data)
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 export default UserController

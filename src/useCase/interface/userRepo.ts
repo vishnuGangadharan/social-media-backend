@@ -13,6 +13,7 @@ interface UserRepo {
     createComment(comment: string, userId: string, postId: string, userName:string): Promise<comments>;
     getUserData(userId: string) : Promise <profilePost | undefined>
     allUsers(userId:string): Promise<UserTypes[] | undefined >
+    allVideos() : Promise<PostTypes[] | undefined>
 
 }
 
